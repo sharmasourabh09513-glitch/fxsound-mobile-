@@ -1,8 +1,8 @@
-name: Build FxSound Android - VERSION 3 FINAL
+name: Build FxSound APK
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
+    - name: Checkout
       uses: actions/checkout@v4
 
     - name: Set up JDK 17
@@ -19,16 +19,17 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Setup Gradle 8.4
-      uses: gradle/actions/setup-gradle@v4 # Using the latest v4 action
-      with:
-        gradle-version: 8.4
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
 
-    - name: Build with Gradle
-      run: gradle assembleDebug --no-daemon --info --stacktrace
+    - name: Generate Gradle Wrapper
+      run: gradle wrapper --gradle-version 8.3
 
-    - name: Upload APK Artifact
+    - name: Build Debug APK
+      run: ./gradlew assembleDebug --stacktrace
+
+    - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
-        name: fxsound-clone-apk-v3
+        name: fxsound-apk
         path: app/build/outputs/apk/debug/app-debug.apk

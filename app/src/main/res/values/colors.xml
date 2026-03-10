@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_deep">#121212</color>
+    <color name="surface_dark">#1E1E1E</color>
+    <color name="accent_cyan">#00D5FF</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="divider">#333333</color>
+    <color name="neon_glow">#4D00D5FF</color>
+</resources>

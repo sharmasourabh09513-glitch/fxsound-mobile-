@@ -1,9 +1,15 @@
+# Gradle
 .gradle/
 build/
 app/build/
+
+# IDE
 *.iml
 .idea/
-local.properties
 .DS_Store
+
+# Local config
+local.properties
+
+# Build outputs
 *.apk
-*.txt

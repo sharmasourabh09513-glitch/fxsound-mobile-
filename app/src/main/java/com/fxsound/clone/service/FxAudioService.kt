@@ -17,8 +17,8 @@ class FxAudioService : Service() {
     override fun onCreate() {
         super.onCreate()
         createNotificationChannel()
-        // Provide a default or placeholder session ID for initialization
-        audioProcessor = AndroidAudioProcessor(0) 
+        // Initialize without a session; sessions are attached when we receive them.
+        audioProcessor = AndroidAudioProcessor(0)
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("fxsound")
             .setContentText("Processing audio for elite sound...")
@@ -30,8 +30,7 @@ class FxAudioService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         val sessionId = intent?.getIntExtra("audio_session_id", -1) ?: -1
         if (sessionId != -1) {
-            // In a full implementation, we would add this session to a list
-            // For now, we update the existing processor
+            audioProcessor.addOrUpdateSession(sessionId)
             audioProcessor.setEnabled(true)
         }
         return START_STICKY

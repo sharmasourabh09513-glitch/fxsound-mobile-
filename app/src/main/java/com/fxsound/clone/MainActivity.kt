@@ -10,7 +10,7 @@ import com.fxsound.clone.ui.MainScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState: Bundle?)
+        super.onCreate(savedInstanceState)
         
         // Start the audio service
         val serviceIntent = Intent(this, FxAudioService::class.java)

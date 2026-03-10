@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.media.audiofx.AudioEffect
+import android.os.Build
 import com.fxsound.clone.service.FxAudioService
 
 class AudioSessionReceiver : BroadcastReceiver() {
@@ -16,7 +17,11 @@ class AudioSessionReceiver : BroadcastReceiver() {
                 putExtra("audio_session_id", sessionId)
             }
             if (action == AudioEffect.ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION) {
-                context.startService(serviceIntent)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    context.startForegroundService(serviceIntent)
+                } else {
+                    context.startService(serviceIntent)
+                }
             } else if (action == AudioEffect.ACTION_CLOSE_AUDIO_EFFECT_CONTROL_SESSION) {
                 // Handle session closure if needed
             }

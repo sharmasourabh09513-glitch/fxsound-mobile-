@@ -8,7 +8,6 @@ import android.content.Intent
 import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
-import com.fxsound.clone.R
 import com.fxsound.clone.audio.AndroidAudioProcessor
 
 class FxAudioService : Service() {

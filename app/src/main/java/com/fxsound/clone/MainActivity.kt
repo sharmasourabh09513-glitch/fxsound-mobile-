@@ -1,10 +1,8 @@
-package com.fxsound.clone
-
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import android.os.Build
 import android.content.Intent
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import com.fxsound.clone.service.FxAudioService
 import com.fxsound.clone.ui.MainScreen
 

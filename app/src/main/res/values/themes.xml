@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.FxSound" parent="Theme.Material3.Dark.NoActionBar">
+    <style name="Theme.FxSound" parent="android:Theme.Material.NoActionBar">
         <item name="android:windowBackground">@color/background_deep</item>
-        <item name="colorPrimary">@color/accent_cyan</item>
-        <item name="colorSurface">@color/surface_dark</item>
+        <item name="android:statusBarColor">@color/background_deep</item>
+        <item name="android:navigationBarColor">@color/background_deep</item>
     </style>
 </resources>

@@ -7,12 +7,16 @@ import android.content.pm.PackageManager
 import android.Manifest
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.fxsound.clone.service.FxAudioService
 import com.fxsound.clone.ui.MainScreen
+import com.fxsound.clone.viewmodel.FxSoundViewModel
 
 class MainActivity : ComponentActivity() {
+    private val viewModel: FxSoundViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -37,12 +41,11 @@ class MainActivity : ComponentActivity() {
                 startService(serviceIntent)
             }
         } catch (e: Exception) {
-            // Service start failed - app continues without background processing
             e.printStackTrace()
         }
 
         setContent {
-            MainScreen()
+            MainScreen(viewModel = viewModel)
         }
     }
 }

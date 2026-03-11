@@ -65,11 +65,11 @@ fun FxPowerButton(
                 shape = RoundedCornerShape(32.dp)
             )
     ) {
-        Icon(
-            imageVector = androidx.compose.material.icons.Icons.Default.PowerSettingsNew,
-            contentDescription = "Power",
-            tint = if (isOn) Color(0xFF00D5FF) else Color(0xFF333333),
-            modifier = Modifier.size(32.dp)
+        Text(
+            text = "\u23FB",
+            color = if (isOn) Color(0xFF00D5FF) else Color(0xFF333333),
+            fontSize = 28.sp,
+            fontWeight = FontWeight.Bold
         )
     }
 }
